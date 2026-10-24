@@ -36,8 +36,8 @@ This project **does not make unsupported iPads compatible with Sidecar**. It is 
 Install Apple's Xcode Command Line Tools (`xcode-select --install`) and use a current SDK that includes macOS 26 AppKit declarations (Xcode/Command Line Tools 26+).
 
 ```sh
-./test.sh
-./build.sh
+bash test.sh
+bash build.sh
 open build/PortraitSidecar.app
 ```
 
@@ -76,11 +76,13 @@ The app captures the virtual workspace for local presentation. It does not recor
 
 Virtual display creation uses the **undocumented CGVirtualDisplay API**. OS updates can change its behavior. This is an experimental utility, not an App Store or Apple-supported product. Compatibility with older supported macOS versions and different hardware is not yet fully verified. No installer, auto-launch service, or background daemon is installed.
 
-## Publishing on GitHub
+## Development and releases
 
-The source package includes `Source/`, `Assets/`, `Tests/`, `Info.plist`, build/test scripts, licenses, and documentation. `.gitignore` excludes local app bundles and build artifacts. Upload the source package to your repository, or initialize Git locally and push it using your preferred GitHub workflow.
+The repository includes `Source/`, `Assets/`, `Tests/`, `Info.plist`, build/test scripts, licenses, and documentation. `.gitignore` excludes local app bundles and build artifacts.
 
-For binary releases, use a Developer ID identity and notarization for a smoother installation experience. The local build is ad-hoc signed and has not been notarized. Do not publish a build with private signing credentials or claim that all hardware has been tested.
+[Check Releases](https://github.com/jackson296/portrait-sidecar/releases) for packaged builds, or build from source using the commands above. Local builds are ad-hoc signed and have not been notarized. Developer ID signing and notarization are recommended for wider binary distribution.
+
+See [TESTING.md](TESTING.md) for the exact validation completed and the remaining hardware and appearance checks. Contributions and compatibility reports are welcome; include your Mac model, macOS version, iPad model, and whether Sidecar is using USB or Wi-Fi.
 
 ## License
 
